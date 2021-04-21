@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # if [[ $(uname -r | cut -d\. -f1) -eq 4 ]];then
-if [[ $(uname -s) == 'Darwin']];then
+if [[ $(uname -s) = 'Darwin']];then
     wget -O - https://repo.saltstack.com/apt/ubuntu/16.04/amd64/latest/SALTSTACK-GPG-KEY.pub | apt-key add -
     apt-get -y update
     apt-get -y install salt-minion
