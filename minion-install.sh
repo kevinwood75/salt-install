@@ -15,7 +15,7 @@ elif [[ $(cat /etc/redhat-release  | awk '{print $4}' | cut -d\. -f1) -eq 8 ]];t
     yum clean expire-cache
     yum -y install salt-minion
     sed -e 's/#master: salt/master: saltmaster01.woodez.net/g' -i /etc/salt/minion
-    systenctl restart salt-minion
+    systemctl restart salt-minion
     systemctl enable salt-minion
     exit 0
 else
@@ -24,6 +24,6 @@ else
     yum clean expire-cache
     yum -y install salt-minion
     sed -e 's/#master: salt/master: saltmaster01.woodez.net/g' -i /etc/salt/minion
-    systenctl restart salt-minion
+    systemctl restart salt-minion
     systemctl enable salt-minion
 fi
