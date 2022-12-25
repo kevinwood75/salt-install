@@ -19,8 +19,8 @@ elif [[ $(cat /etc/redhat-release  | awk '{print $4}' | cut -d\. -f1) -eq 8 ]];t
     systemctl enable salt-minion
     exit 0
 else
-    rpm --import https://repo.saltproject.io/py3/redhat/7/x86_64/3002/SALTSTACK-GPG-KEY.pub
-    curl -fsSL https://repo.saltproject.io/py3/redhat/7/x86_64/3002.repo | sudo tee /etc/yum.repos.d/salt.repo
+    rpm --import https://repo.saltproject.io/py3/redhat/7/x86_64/latest/SALTSTACK-GPG-KEY.pub
+    curl -fsSL https://repo.saltproject.io/py3/redhat/7/x86_64/latest.repo | sudo tee /etc/yum.repos.d/salt.repo
     yum clean expire-cache
     yum -y install salt-minion
     sed -e 's/#master: salt/master: saltmaster01.woodez.net/g' -i /etc/salt/minion
